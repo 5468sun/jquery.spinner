@@ -50,6 +50,10 @@
           e.preventDefault();
           this.spin(dir);
         }
+      }, this),
+      'keyup.spinner': $.proxy(function(e) {
+        e.preventDefault();
+        this.value(this.$el.val());
       }, this)
     });
 
@@ -237,6 +241,14 @@
       }
       else if (options === 'spin' && value) {
         data.spinning.spin(value);
+      }
+      else if (options === 'min' && value) {
+          data.spinning.options.min = value;
+          data.spinning.min = value;
+      }
+      else if (options === 'max' && value) {
+          data.spinning.options.max = value;
+          data.spinning.max = value;
       }
     });
   };
